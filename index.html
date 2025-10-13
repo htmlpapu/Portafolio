@@ -4,9 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Diego Isaac - Portafolio</title>
-    <!-- Conectamos nuestro archivo de estilos CSS -->
     <link rel="stylesheet" href="css/style.css">
-    <!-- Importamos las fuentes desde Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=VT323&display=swap" rel="stylesheet">
@@ -14,41 +12,44 @@
 <body>
 
     <!-- =========== SECCIÓN DE BIENVENIDA =========== -->
-    <header class="header-section">
-        <!-- La ruta de la imagen ahora es local -->
-        <img src="assets/PORTADA.png" alt="Portada de Diego Isaac" class="header-image">
-        
+    <!-- El `id="parallax-header"` es para que JS controle su fondo -->
+    <header class="header-section" id="parallax-header">
+        <div class="header-overlay"></div> <!-- Una capa para oscurecer la imagen y que el texto resalte -->
         <div class="header-text">
             <h1>DIEGO<br>ISAAC</h1>
             <div class="analista-box">
-                &lt;analista&gt;
+                <!-- El `id="typewriter"` es para el efecto de máquina de escribir -->
+                <span id="typewriter"></span><span class="cursor">_</span>
             </div>
         </div>
     </header>
 
     <!-- =========== SECCIÓN DE PANELES/ICONOS =========== -->
+    <!-- El `data-scroll` le dice a nuestro JS que este elemento debe ser animado al aparecer -->
     <section class="panels-section">
-        <div class="panel">
+        <div class="panel" data-scroll>
             <img src="assets/PANEL 1.png" alt="Resolución de Problemas">
         </div>
-        <div class="panel">
+        <div class="panel" data-scroll>
             <img src="assets/PANEL 2.png" alt="Análisis de Datos">
         </div>
-        <div class="panel">
+        <div class="panel" data-scroll>
             <img src="assets/PANEL 3.png" alt="Comercio Exterior y Logística">
         </div>
     </section>
 
     <!-- =========== SECCIÓN DEL DASHBOARD =========== -->
     <section class="dashboard-section">
-        <h2 class="neon-text">Proyectos</h2>
-        <div class="dashboard-container">
+        <h2 class="neon-text" data-scroll>Proyectos</h2>
+        <div class="dashboard-container" data-scroll>
             <iframe title="Dashboard de Power BI" src="https://app.powerbi.com/view?r=eyJrIjoiZWUzMjM3NjMtYWM2MS00YjQ3LTkzM2YtMDg0NzU1YWIzYjBhIiwidCI6ImFhZjAxNDIwLThmMzItNDllNS1iY2VmLTc5NTM0MGMxZjk2YSJ9" allowFullScreen="true"></iframe>
         </div>
-        <p class="disclaimer">
-            <strong>Nota Importante:</strong> Todos los datos mostrados en este dashboard han sido anonimizados y generados de forma aleatoria. No representan la información real de ninguna empresa y se utilizan únicamente con fines demostrativos.
+        <p class="disclaimer" data-scroll>
+            <strong>Nota Importante:</strong> Todos los datos mostrados en este dashboard han sido anonimizados y generados de forma aleatoria...
         </p>
     </section>
 
+    <!-- Cargamos nuestro script al final para no bloquear la renderización de la página -->
+    <script src="js/script.js" defer></script>
 </body>
 </html>
