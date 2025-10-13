@@ -4,97 +4,51 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Diego Isaac - Portafolio</title>
-    <style>
-        /* --- FUENTES Y ESTILOS GLOBALES --- */
-        @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=VT323&display=swap');
+    <!-- Conectamos nuestro archivo de estilos CSS -->
+    <link rel="stylesheet" href="css/style.css">
+    <!-- Importamos las fuentes desde Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=VT323&display=swap" rel="stylesheet">
+</head>
+<body>
 
-        body {
-            background-color: #F5F3EF; /* Un color crema/hueso como en tus imágenes */
-            font-family: 'Bebas Neue', sans-serif;
-            color: #2c2c2c;
-            margin: 0;
-            padding: 20px;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            overflow-x: hidden;
-        }
-
-        /* --- EFECTO DE TEXTO NEÓN (La Magia) --- */
-        .neon-text {
-            font-size: 5rem;
-            color: #E0F7FA; /* Color base del texto */
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            /* Sombra múltiple para crear el efecto neón cian y el borde magenta */
-            text-shadow: 
-                0 0 5px rgba(0, 255, 255, 0.8),
-                0 0 10px rgba(0, 255, 255, 0.8),
-                3px 3px 2px rgba(255, 0, 191, 0.9);
-            animation: flicker 3s infinite alternate; /* Animación de parpadeo sutil */
-        }
+    <!-- =========== SECCIÓN DE BIENVENIDA =========== -->
+    <header class="header-section">
+        <!-- La ruta de la imagen ahora es local -->
+        <img src="assets/PORTADA.png" alt="Portada de Diego Isaac" class="header-image">
         
-        @keyframes flicker {
-          0%, 18%, 22%, 25%, 53%, 57%, 100% {
-              text-shadow:
-                0 0 4px rgba(0, 255, 255, 0.7),
-                0 0 8px rgba(0, 255, 255, 0.7),
-                3px 3px 2px rgba(255, 0, 191, 0.8);
-          }
-          20%, 24%, 55% {       
-              text-shadow: none;
-          }
-        }
+        <div class="header-text">
+            <h1>DIEGO<br>ISAAC</h1>
+            <div class="analista-box">
+                &lt;analista&gt;
+            </div>
+        </div>
+    </header>
 
-        /* --- SECCIÓN DE BIENVENIDA (HEADER) --- */
-        .header-section {
-            position: relative;
-            width: 100%;
-            max-width: 675px; /* Ancho de tu imagen de portada */
-            margin-bottom: 50px;
-            animation: fadeIn 1s ease-in-out;
-        }
+    <!-- =========== SECCIÓN DE PANELES/ICONOS =========== -->
+    <section class="panels-section">
+        <div class="panel">
+            <img src="assets/PANEL 1.png" alt="Resolución de Problemas">
+        </div>
+        <div class="panel">
+            <img src="assets/PANEL 2.png" alt="Análisis de Datos">
+        </div>
+        <div class="panel">
+            <img src="assets/PANEL 3.png" alt="Comercio Exterior y Logística">
+        </div>
+    </section>
 
-        .header-image {
-            width: 100%;
-            height: auto;
-            display: block;
-            border-radius: 8px;
-        }
+    <!-- =========== SECCIÓN DEL DASHBOARD =========== -->
+    <section class="dashboard-section">
+        <h2 class="neon-text">Proyectos</h2>
+        <div class="dashboard-container">
+            <iframe title="Dashboard de Power BI" src="https://app.powerbi.com/view?r=eyJrIjoiZWUzMjM3NjMtYWM2MS00YjQ3LTkzM2YtMDg0NzU1YWIzYjBhIiwidCI6ImFhZjAxNDIwLThmMzItNDllNS1iY2VmLTc5NTM0MGMxZjk2YSJ9" allowFullScreen="true"></iframe>
+        </div>
+        <p class="disclaimer">
+            <strong>Nota Importante:</strong> Todos los datos mostrados en este dashboard han sido anonimizados y generados de forma aleatoria. No representan la información real de ninguna empresa y se utilizan únicamente con fines demostrativos.
+        </p>
+    </section>
 
-        .header-text {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            text-align: center;
-        }
-
-        .header-text h1 {
-            font-family: 'Bebas Neue', sans-serif;
-            font-size: clamp(4rem, 10vw, 8rem); /* Tamaño de fuente adaptable */
-            line-height: 0.8;
-            margin: 0;
-            color: #8E44AD; /* Un morado vibrante */
-             text-shadow: 
-                0 0 5px rgba(0, 255, 255, 0.8),
-                3px 3px 0px rgba(0, 230, 230, 1);
-        }
-
-        .analista-box {
-            background-color: #fff;
-            border: 2px dotted #8E44AD;
-            padding: 8px 15px;
-            display: inline-block;
-            margin-top: 20px;
-            font-family: 'VT323', monospace; /* Fuente pixel art */
-            font-size: clamp(1.2rem, 3vw, 1.8rem);
-            color: #333;
-        }
-        
-        .analista-box::after {
-            content: '_';
-            animation: blink 1s step-end infinite; /* Animación de cursor parpadeante */
-            font-weight: bold;
-            margin-left: 5px;
-        }
+</body>
+</html>
