@@ -11,65 +11,30 @@
 </head>
 <body>
 
-    <div class="container">
-        <header class="hero">
-            <div class="hero-text">
-                <h1 class="glitch-text" data-text="diego isaac">diego isaac</h1>
-                <!-- CAMBIO AQUÍ: CONCEPTO DE DUALIDAD -->
-                <p class="subtitle">ARTISTA + ANALISTA</p>
-                <p class="analyst-text"><span id="typing-analyst"></span></p>
+    <header class="hero">
+        <div class="header-overlay"></div>
+        <div class="header-text">
+            <h1 class="glitch-text" data-text="diego isaac">diego isaac</h1>
+            <p class="analyst-text"><span id="typing-analyst"></span></p>
+        </div>
+    </header>
+
+    <main>
+        <section class="icon-panels">
+            <img src="https://github.com/htmlpapu/portafolio-assets/blob/main/PANEL%201.png?raw=true" alt="Análisis de Datos" class="panel-icon">
+            <img src="https://github.com/htmlpapu/portafolio-assets/blob/main/PANEL%202.png?raw=true" alt="Comercio Exterior y Logística" class="panel-icon">
+            <img src="https://github.com/htmlpapu/portafolio-assets/blob/main/PANEL%203.png?raw=true" alt="Resolución de Problemas" class="panel-icon">
+        </section>
+
+        <section class="powerbi-section">
+            <div class="disclaimer">
+                <p><strong>Nota de Confidencialidad:</strong> Los datos en este dashboard han sido anonimizados y aleatorizados con fines demostrativos y no corresponden a la realidad de ninguna empresa.</p>
             </div>
-            <div class="hero-image-container">
-                <img src="https://github.com/htmlpapu/portafolio-assets/blob/main/PERSONAJE%20PRINCIPAL.png?raw=true" alt="Ilustración de Diego y un gato con gafas de sol" class="hero-character">
+            <div class="powerbi-embed">
+                <iframe title="Test_BI (1)" width="100%" height="759" src="https://app.powerbi.com/view?r=eyJrIjoiZWUzMjM3NjMtYWM2MS00YjQ3LTkzM2YtMDg0NzU1YWIzYjBhIiwidCI6ImFhZjAxNDIwLThmMzItNDllNS1iY2VmLTc5NTM0MGMxZjk2YSJ9" frameborder="0" allowFullScreen="true"></iframe>
             </div>
-        </header>
-
-        <main>
-            <section class="strengths">
-                <h2 class="section-title">FORTALEZAS_CLAVE</h2>
-                <div class="strengths-grid">
-                    
-                    <div class="strength-item">
-                        <div class="icon-container">
-                            <img src="https://i.imgur.com/KkPq02s.png" alt="Icono Pixel Art de Análisis de Datos">
-                        </div>
-                        <div class="strength-text">
-                            <h3>Análisis de Datos</h3>
-                            <p>Capacidad para transformar datos complejos en insights visuales y estrategias accionables que impulsan la toma de decisiones.</p>
-                        </div>
-                    </div>
-
-                    <div class="strength-item">
-                         <div class="icon-container">
-                            <img src="https://i.imgur.com/cE0G3fD.png" alt="Icono Pixel Art de Idiomas">
-                        </div>
-                        <div class="strength-text">
-                            <h3>Idiomas (Inglés C1)</h3>
-                            <p>Experiencia en reuniones y coordinación de operaciones logísticas con equipos y proveedores internacionales en inglés.</p>
-                        </div>
-                    </div>
-
-                    <div class="strength-item">
-                        <div class="icon-container">
-                           <img src="https://i.imgur.com/YwN8n4h.png" alt="Icono Pixel Art de Logística">
-                       </div>
-                       <div class="strength-text">
-                           <h3>Logística y Cadena de Suministro</h3>
-                           <p>Gestión del ciclo completo de inventarios y optimización de la cadena de suministro, desde el proveedor hasta el cliente final.</p>
-                       </div>
-                   </div>
-
-                </div>
-            </section>
-
-            <section class="projects-bi">
-                <h2 class="section-title">PROYECTOS_BI</h2>
-                <div class="powerbi-embed">
-                    <iframe title="Diagnóstico de Rendimiento" width="100%" height="759" src="https://app.powerbi.com/view?r=eyJrIjoiZWUzMjM3NjMtYWM2MS00YjQ3LTkzM2YtMDg0NzU1YWIzYjBhIiwidCI6ImFhZjAxNDIwLThmMzItNDllNS1iY2VmLTc5NTM0MGMxZjk2YSJ9" frameborder="0" allowFullScreen="true"></iframe>
-                </div>
-            </section>
-        </main>
-    </div>
+        </section>
+    </main>
 
     <footer class="contact">
         <div class="social-links">
@@ -78,6 +43,8 @@
             <a href="https://github.com/htmlpapu" target="_blank">GitHub</a>
         </div>
     </footer>
+
+    <script src="script.js"></script>
 
 </body>
 </html>
