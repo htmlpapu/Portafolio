@@ -4,29 +4,27 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Diego Isaac - Portafolio</title>
-    <link rel="stylesheet" href="css/style.css">
+    <!-- Asegúrate de que esta ruta sea correcta en tu repositorio de GitHub -->
+    <link rel="stylesheet" href="css/style.css"> 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=VT323&display=swap" rel="stylesheet">
 </head>
 <body>
 
-    <!-- =========== SECCIÓN DE BIENVENIDA =========== -->
-    <!-- El `id="parallax-header"` es para que JS controle su fondo -->
     <header class="header-section" id="parallax-header">
-        <div class="header-overlay"></div> <!-- Una capa para oscurecer la imagen y que el texto resalte -->
+        <div class="header-overlay"></div>
         <div class="header-text">
             <h1>DIEGO<br>ISAAC</h1>
             <div class="analista-box">
-                <!-- El `id="typewriter"` es para el efecto de máquina de escribir -->
-                <span id="typewriter"></span><span class="cursor">_</span>
+                <!-- ID ACTUALIZADO para que coincida con tu nuevo script JS -->
+                <span id="typing-effect"></span><span class="cursor">_</span>
             </div>
         </div>
     </header>
 
-    <!-- =========== SECCIÓN DE PANELES/ICONOS =========== -->
-    <!-- El `data-scroll` le dice a nuestro JS que este elemento debe ser animado al aparecer -->
     <section class="panels-section">
+        <!-- Asegúrate de que las rutas a las imágenes sean correctas -->
         <div class="panel" data-scroll>
             <img src="assets/PANEL 1.png" alt="Resolución de Problemas">
         </div>
@@ -38,7 +36,6 @@
         </div>
     </section>
 
-    <!-- =========== SECCIÓN DEL DASHBOARD =========== -->
     <section class="dashboard-section">
         <h2 class="neon-text" data-scroll>Proyectos</h2>
         <div class="dashboard-container" data-scroll>
@@ -48,8 +45,7 @@
             <strong>Nota Importante:</strong> Todos los datos mostrados en este dashboard han sido anonimizados y generados de forma aleatoria...
         </p>
     </section>
-
-    <!-- Cargamos nuestro script al final para no bloquear la renderización de la página -->
+    
     <script src="js/script.js" defer></script>
 </body>
 </html>
