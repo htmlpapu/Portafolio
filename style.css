@@ -1,9 +1,9 @@
 :root {
-    --bg-color: #f4f4f9;
+    --bg-color: #ffffff;
     --text-color: #1a1a1a;
-    --accent-blue: #00A3E0; /* Un azul cian vibrante de la imagen de Miku */
-    --border-color: rgba(26, 26, 26, 0.1);
-    --font-title: 'Chakra Petch', sans-serif;
+    --accent-purple: #9d8aff;
+    --accent-blue: #80dfff;
+    --font-title: 'Teko', sans-serif;
     --font-body: 'Roboto Mono', monospace;
 }
 
@@ -13,192 +13,175 @@ html {
 
 body {
     background-color: var(--bg-color);
-    background-image: url('https://i.pinimg.com/736x/ad/39/b7/ad39b7c3e6cd97f6c6198460ecc4e5af.jpg');
-    background-size: 300px; /* Textura sutil, no imagen de fondo completa */
-    background-attachment: fixed;
     color: var(--text-color);
     font-family: var(--font-body);
     margin: 0;
     line-height: 1.6;
 }
 
+/* --- HERO / HEADER --- */
 .hero {
     height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    padding: 0 1rem;
     position: relative;
-    background-image: url('https://i.pinimg.com/736x/eb/ae/54/ebae54132a722ddccd73db9e2a195505.jpg');
-    background-size: cover;
-    background-position: center 30%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
 }
 
-/* --- EFECTO DE SUPERPOSICIÓN: Filtro de color sobre la imagen --- */
-.hero::before {
-    content: '';
+.hero-background {
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    background: rgba(255, 255, 255, 0.3);
-    backdrop-filter: brightness(1.2) saturate(0.5);
+    background-image: url('https://github.com/htmlpapu/portafolio-assets/blob/main/FONDO%20PERSONAJE.png?raw=true');
+    background-size: cover;
+    background-position: center;
+    z-index: 1;
 }
 
 .hero-content {
+    display: flex;
+    align-items: center;
+    justify-content: center;
     position: relative;
     z-index: 2;
-    background: rgba(255, 255, 255, 0.6);
-    backdrop-filter: blur(5px);
-    padding: 2rem;
-    border-radius: 5px;
+    width: 90%;
+    max-width: 1200px;
 }
 
-.hero h1 {
+.text-container {
+    flex-basis: 50%;
+    text-align: left;
+}
+
+.hero-character {
+    flex-basis: 50%;
+    max-width: 500px;
+    height: auto;
+    object-fit: contain;
+    transform: translateX(10%);
+}
+
+.glitch {
     font-family: var(--font-title);
-    font-size: 4rem;
-    margin: 0;
-    letter-spacing: 5px;
+    font-size: 10rem;
+    line-height: 0.8;
     color: var(--text-color);
-    text-shadow: 0 0 5px var(--accent-blue);
+    position: relative;
+    text-shadow: 
+        0.05em 0 0 rgba(157, 138, 255, 0.75),
+        -0.025em -0.05em 0 rgba(128, 223, 255, 0.75),
+        0.025em 0.05em 0 rgba(157, 138, 255, 0.75);
 }
 
 .subtitle {
-    font-size: 1.2rem;
-    margin: 0.5rem 0 2rem 0;
+    font-family: var(--font-title);
+    font-size: 5rem;
+    line-height: 1;
+    color: var(--text-color);
+    margin-left: 5px;
 }
 
-.keywords {
-    font-size: 1.5rem;
-    height: 30px;
-}
-
-#typing-effect::after {
-    content: '_';
-    animation: blink 0.7s infinite;
-    color: var(--accent-blue);
-}
-
-@keyframes blink {
-    50% { opacity: 0; }
-}
-
+/* --- MAIN CONTENT --- */
 main {
     max-width: 1200px;
     margin: 0 auto;
-    padding: 4rem 1rem;
-}
-
-.projects-intro, .consulting-projects, .art-gallery, .contact {
-    text-align: center;
-    margin-bottom: 3rem;
-}
-
-h2, h3 {
-    font-family: var(--font-title);
-    letter-spacing: 3px;
-    color: var(--text-color);
+    padding: 6rem 1rem;
 }
 
 h2 {
-    font-size: 2.5rem;
-}
-
-.project-card-bi {
-    background: #fff;
-    border: 1px solid var(--border-color);
-    border-radius: 10px;
-    padding: 2rem;
+    font-family: var(--font-title);
+    font-size: 4rem;
+    text-align: center;
+    letter-spacing: 3px;
     margin-bottom: 4rem;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.05);
 }
 
-.project-info h3 {
-    color: var(--accent-blue);
-    margin-top: 0;
+/* --- STRENGTHS SECTION --- */
+.strengths-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 2rem;
+    justify-items: center;
+}
+
+.strength-item {
+    position: relative;
+    cursor: pointer;
+}
+
+.strength-item img {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    border: 3px solid var(--text-color);
+    transition: transform 0.3s ease;
+}
+
+.strength-card {
+    position: absolute;
+    bottom: 110%; /* Posicionada encima del ícono */
+    left: 50%;
+    transform: translateX(-50%) scale(0.9);
+    width: 250px;
+    background: #fff;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    padding: 1.5rem;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease, transform 0.3s ease;
+    z-index: 10;
+}
+
+.strength-item:hover .strength-card {
+    opacity: 1;
+    transform: translateX(-50%) scale(1);
+}
+
+.strength-item:hover img {
+    transform: scale(1.1);
+}
+
+.strength-card h3 {
+    margin: 0 0 0.5rem 0;
+    font-size: 1.2rem;
+    color: var(--accent-purple);
+}
+
+.strength-card p {
+    margin: 0;
+    font-size: 0.9rem;
+    line-height: 1.5;
+}
+
+/* --- PROJECTS BI SECTION --- */
+.projects-bi {
+    padding-top: 4rem;
 }
 
 .powerbi-embed iframe {
+    border: 1px solid #ddd;
     border-radius: 5px;
-    border: 1px solid var(--border-color);
 }
 
-.consulting-projects {
-    padding-top: 2rem;
-}
-
-.project-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-    gap: 2rem;
-}
-
-.doc-card {
-    background: #fff;
-    border: 1px solid var(--border-color);
-    border-radius: 10px;
-    padding: 2rem;
-    text-align: center;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.doc-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 8px 30px rgba(0,0,0,0.1);
-}
-
-.ministry-logo {
-    max-height: 50px;
-    margin-bottom: 1rem;
-}
-
-.doc-card h3 {
-    font-size: 1.2rem;
-}
-
-.btn-view {
-    display: inline-block;
-    margin-top: 1.5rem;
-    padding: 0.8rem 1.5rem;
-    background-color: var(--accent-blue);
-    color: #fff;
-    text-decoration: none;
-    border-radius: 5px;
-    font-family: var(--font-title);
-    transition: background-color 0.3s ease;
-}
-
-.btn-view:hover {
-    background-color: #008fbf;
-}
-
-
-.art-gallery {
-    padding-top: 2rem;
-}
-
-.gallery-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 1rem;
-}
-
-.gallery-grid img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    border-radius: 5px;
-    border: 1px solid var(--border-color);
-}
-
+/* --- FOOTER --- */
 .contact {
+    text-align: center;
     padding: 4rem 1rem;
+    background: #f8f8f8;
+}
+
+.contact h3 {
+    font-family: var(--font-title);
+    font-size: 2rem;
 }
 
 .social-links a {
-    color: var(--accent-blue);
+    color: var(--accent-purple);
     text-decoration: none;
     font-size: 1.2rem;
     margin: 0 1rem;
@@ -206,5 +189,27 @@ h2 {
 }
 
 .social-links a:hover {
-    color: var(--text-color);
+    color: var(--accent-blue);
+}
+
+/* --- RESPONSIVE ADJUSTMENTS --- */
+@media (max-width: 768px) {
+    .hero-content {
+        flex-direction: column;
+        text-align: center;
+    }
+    .hero-character {
+        max-width: 70%;
+        margin-top: 2rem;
+        transform: translateX(0);
+    }
+    .text-container {
+        text-align: center;
+    }
+    .glitch {
+        font-size: 5rem;
+    }
+    .subtitle {
+        font-size: 2.5rem;
+    }
 }
