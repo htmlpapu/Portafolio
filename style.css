@@ -1,93 +1,72 @@
-/* --- ESTILOS GLOBALES --- */
+/* --- ESTILOS GLOBALES Y FUENTES --- */
 body {
-    background-color: #F5F3EF; /* Un color crema/hueso como en tus imágenes */
+    background-color: #F5F3EF;
     font-family: 'Bebas Neue', sans-serif;
     color: #2c2c2c;
     margin: 0;
-    padding: 20px;
+    padding-top: 20px;
     display: flex;
     flex-direction: column;
     align-items: center;
     overflow-x: hidden;
 }
 
-/* --- EFECTO DE TEXTO NEÓN (La Magia) --- */
-.neon-text {
-    font-size: 5rem;
-    color: #E0F7FA; /* Color base del texto */
-    text-transform: uppercase;
-    letter-spacing: 2px;
-    /* Sombra múltiple para crear el efecto neón cian y el borde magenta */
-    text-shadow: 
-        0 0 5px rgba(0, 255, 255, 0.8),
-        0 0 10px rgba(0, 255, 255, 0.8),
-        3px 3px 2px rgba(255, 0, 191, 0.9);
-    animation: flicker 3s infinite alternate; /* Animación de parpadeo sutil */
-}
-
-@keyframes flicker {
-  0%, 18%, 22%, 25%, 53%, 57%, 100% {
-      text-shadow:
-        0 0 4px rgba(0, 255, 255, 0.7),
-        0 0 8px rgba(0, 255, 255, 0.7),
-        3px 3px 2px rgba(255, 0, 191, 0.8);
-  }
-  20%, 24%, 55% {       
-      text-shadow: none;
-  }
-}
-
-/* --- SECCIÓN DE BIENVENIDA (HEADER) --- */
+/* --- SECCIÓN DE BIENVENIDA (CON PARALLAX) --- */
 .header-section {
     position: relative;
     width: 100%;
-    max-width: 675px; /* Ancho de tu imagen de portada */
+    height: 500px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    background-image: url('../assets/PORTADA.png'); /* Ruta relativa desde la carpeta CSS a la carpeta assets */
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed; /* La clave del efecto parallax */
     margin-bottom: 50px;
-    animation: fadeIn 1s ease-in-out;
+    overflow: hidden; /* Asegura que nada se salga del header */
 }
 
-.header-image {
+.header-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
     width: 100%;
-    height: auto;
-    display: block;
-    border-radius: 8px;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.2); /* Sutil capa oscura para mejorar contraste */
 }
 
 .header-text {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    text-align: center;
+    position: relative; /* Para que esté por encima del overlay */
+    z-index: 2;
 }
 
 .header-text h1 {
     font-family: 'Bebas Neue', sans-serif;
-    font-size: clamp(4rem, 10vw, 8rem); /* Tamaño de fuente adaptable */
+    font-size: clamp(4rem, 10vw, 8rem);
     line-height: 0.8;
     margin: 0;
-    color: #8E44AD; /* Un morado vibrante */
-     text-shadow: 
-        0 0 5px rgba(0, 255, 255, 0.8),
-        3px 3px 0px rgba(0, 230, 230, 1);
+    color: #fff; /* Texto en blanco para mejor contraste sobre la imagen */
+    text-shadow: 
+        0 0 8px rgba(0, 255, 255, 0.9), /* Sombra cian brillante */
+        3px 3px 0px #8E44AD; /* Sombra morada sólida para el borde */
 }
 
 .analista-box {
-    background-color: #fff;
+    background-color: rgba(255, 255, 255, 0.9);
     border: 2px dotted #8E44AD;
     padding: 8px 15px;
     display: inline-block;
     margin-top: 20px;
-    font-family: 'VT323', monospace; /* Fuente pixel art */
+    font-family: 'VT323', monospace;
     font-size: clamp(1.2rem, 3vw, 1.8rem);
     color: #333;
 }
 
-.analista-box::after {
-    content: '_';
-    animation: blink 1s step-end infinite; /* Animación de cursor parpadeante */
+.cursor {
+    animation: blink 1s step-end infinite;
     font-weight: bold;
-    margin-left: 5px;
 }
 
 @keyframes blink {
@@ -95,19 +74,24 @@ body {
     50% { opacity: 1 }
 }
 
+/* --- ESTILOS GENERALES DE SECCIONES --- */
+.panels-section, .dashboard-section {
+    width: 90%;
+    max-width: 900px;
+    margin-bottom: 60px;
+}
+
 /* --- SECCIÓN DE PANELES --- */
 .panels-section {
     display: flex;
     justify-content: center;
     gap: 25px;
-    flex-wrap: wrap; /* Para que se adapte a pantallas pequeñas */
-    margin-bottom: 60px;
-    animation: fadeIn 1.5s ease-in-out;
+    flex-wrap: wrap; /* Para que se adapten a pantallas pequeñas */
 }
 
 .panel {
     width: 100%;
-    max-width: 300px; /* Un tamaño manejable para los paneles */
+    max-width: 300px;
     border-radius: 8px;
     overflow: hidden;
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
@@ -124,16 +108,34 @@ body {
     display: block;
 }
 
-/* --- SECCIÓN DEL DASHBOARD DE POWER BI --- */
+/* --- SECCIÓN DEL DASHBOARD --- */
 .dashboard-section {
-    width: 100%;
-    max-width: 900px; /* Un ancho generoso para el dashboard */
     text-align: center;
-    animation: fadeIn 2s ease-in-out;
 }
 
-.dashboard-section h2 {
+.neon-text {
+    font-size: clamp(3rem, 8vw, 5rem);
+    color: #E0F7FA;
+    text-transform: uppercase;
+    letter-spacing: 2px;
     margin-bottom: 30px;
+    text-shadow: 
+        0 0 5px rgba(0, 255, 255, 0.8), 
+        0 0 10px rgba(0, 255, 255, 0.8),
+        3px 3px 2px rgba(255, 0, 191, 0.9);
+    animation: flicker 3s infinite alternate;
+}
+
+@keyframes flicker {
+  0%, 18%, 22%, 25%, 53%, 57%, 100% { 
+      text-shadow: 
+        0 0 4px rgba(0, 255, 255, 0.7), 
+        0 0 8px rgba(0, 255, 255, 0.7), 
+        3px 3px 2px rgba(255, 0, 191, 0.8); 
+    }
+  20%, 24%, 55% { 
+      text-shadow: none; 
+    }
 }
 
 .dashboard-container {
@@ -146,7 +148,7 @@ body {
 
 iframe {
     width: 100%;
-    height: 500px; /* Altura inicial, se puede ajustar */
+    height: 500px;
     border: none;
 }
 
@@ -158,27 +160,35 @@ iframe {
     font-style: italic;
 }
 
-/* --- ANIMACIÓN DE ENTRADA --- */
-@keyframes fadeIn {
-    from {
-        opacity: 0;
-        transform: translateY(20px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
+/* --- ANIMACIONES DE SCROLL (LA NUEVA MAGIA) --- */
+[data-scroll] {
+    opacity: 0;
+    transform: translateY(40px);
+    transition: opacity 0.8s cubic-bezier(0.645, 0.045, 0.355, 1), transform 0.8s cubic-bezier(0.645, 0.045, 0.355, 1);
 }
 
-/* --- RESPONSIVE DESIGN --- */
+/* Los paneles tendrán un pequeño retraso entre ellos para un efecto escalonado */
+.panel:nth-child(2) { transition-delay: 0.1s; }
+.panel:nth-child(3) { transition-delay: 0.2s; }
+
+/* El dashboard y el disclaimer también tendrán un retraso */
+.dashboard-container { transition-delay: 0.1s; }
+.disclaimer { transition-delay: 0.2s; }
+
+/* Esta clase será añadida por JavaScript para activar la animación */
+[data-scroll].is-visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* --- RESPONSIVE DESIGN PARA MÓVILES --- */
 @media (max-width: 768px) {
-    .neon-text {
-        font-size: 3rem;
+    /* En móviles, desactivamos el efecto parallax porque puede dar problemas de rendimiento */
+    .header-section {
+        background-attachment: scroll;
+        height: 400px;
     }
-    .panels-section {
-        flex-direction: column;
-        align-items: center;
-    }
+    
     iframe {
         height: 400px;
     }
