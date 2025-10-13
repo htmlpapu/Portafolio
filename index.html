@@ -1,78 +1,210 @@
-<!DOCTYPE html>
-<html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Diego Chicaiza | Analista</title>
-    <link rel="stylesheet" href="style.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@400;700&family=Chakra+Petch:wght@700&display=swap" rel="stylesheet">
-</head>
-<body>
+:root {
+    --bg-color: #f4f4f9;
+    --text-color: #1a1a1a;
+    --accent-blue: #00A3E0; /* Un azul cian vibrante de la imagen de Miku */
+    --border-color: rgba(26, 26, 26, 0.1);
+    --font-title: 'Chakra Petch', sans-serif;
+    --font-body: 'Roboto Mono', monospace;
+}
 
-    <header class="hero">
-        <div class="hero-content">
-            <h1>DIEGO CHICAIZA</h1>
-            <p class="subtitle">Artista de Datos | Estratega Creativo</p>
-            <div class="keywords">
-                <span id="typing-effect"></span>
-            </div>
-        </div>
-    </header>
+html {
+    scroll-behavior: smooth;
+}
 
-    <main>
-        <section class="projects-intro">
-            <h2>PROYECTOS_BI</h2>
-            <p>Donde la creatividad se encuentra con los datos.</p>
-        </section>
+body {
+    background-color: var(--bg-color);
+    background-image: url('https://i.pinimg.com/736x/ad/39/b7/ad39b7c3e6cd97f6c6198460ecc4e5af.jpg');
+    background-size: 300px; /* Textura sutil, no imagen de fondo completa */
+    background-attachment: fixed;
+    color: var(--text-color);
+    font-family: var(--font-body);
+    margin: 0;
+    line-height: 1.6;
+}
 
-        <section class="project-card-bi">
-            <div class="project-info">
-                <h3>Diagnóstico de Rendimiento</h3>
-                <p>Análisis de la causa raíz de quiebres de stock. Visibilidad 100% y optimización de costos del 15%.</p>
-            </div>
-            <div class="powerbi-embed">
-                <iframe title="Test_BI (1)" width="100%" height="759" src="https://app.powerbi.com/view?r=eyJrIjoiZWUzMjM3NjMtYWM2MS00YjQ3LTkzM2YtMDg0NzU1YWIzYjBhIiwidCI6ImFhZjAxNDIwLThmMzItNDllNS1iY2VmLTc5NTM0MGMxZjk2YSJ9&pageName=59c1baed2a705da90000" frameborder="0" allowFullScreen="true"></iframe>
-            </div>
-        </section>
+.hero {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 0 1rem;
+    position: relative;
+    background-image: url('https://i.pinimg.com/736x/eb/ae/54/ebae54132a722ddccd73db9e2a195505.jpg');
+    background-size: cover;
+    background-position: center 30%;
+}
 
-        <section class="consulting-projects">
-            <h2>CONSULTORÍA_TÉCNICA</h2>
-            <div class="project-grid">
-                <div class="doc-card">
-                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/03/Logo_del_Ministerio_de_Comercio_Exterior_e_Inversiones.png/800px-Logo_del_Ministerio_de_Comercio_Exterior_e_Inversiones.png" alt="Logo Ministerio de Producción" class="ministry-logo">
-                    <h3>Estudio de Mercado: Aguacate Hass en Corea del Sur</h3>
-                    <p>Análisis de viabilidad y estrategia de entrada para micro-exportadores ecuatorianos en el mercado surcoreano.</p>
-                    <a href="https://drive.google.com/file/d/11bXwxvyDIBt5VV85xY7GkKE87j1dA7Al/view" class="btn-view" target="_blank">Ver Estudio</a>
-                </div>
-                <div class="doc-card">
-                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/03/Logo_del_Ministerio_de_Comercio_Exterior_e_Inversiones.png/800px-Logo_del_Ministerio_de_Comercio_Exterior_e_Inversiones.png" alt="Logo Ministerio de Producción" class="ministry-logo">
-                    <h3>Análisis de Rentabilidad: Exportación de Aguacate Hass</h3>
-                    <p>Estudio financiero para determinar la rentabilidad de la exportación para productores en la Parroquia de Colonche.</p>
-                    <a href="https://drive.google.com/file/d/1slPdlDFxtZNia9FK98FZ5EiP8Qi_QbCU/view" class="btn-view" target="_blank">Ver Análisis</a>
-                </div>
-            </div>
-        </section>
+/* --- EFECTO DE SUPERPOSICIÓN: Filtro de color sobre la imagen --- */
+.hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(255, 255, 255, 0.3);
+    backdrop-filter: brightness(1.2) saturate(0.5);
+}
 
-        <section class="art-gallery">
-             <h2>GALERÍA_CREATIVA</h2>
-             <div class="gallery-grid">
-                <img src="https://i.imgur.com/8a6P17I.jpeg" alt="Ilustración estilo NYLON por Diego Chicaiza">
-                <img src="https://i.imgur.com/GzB9Z08.jpeg" alt="Ilustración de personaje con pulgar arriba por Diego Chicaiza">
-             </div>
-        </section>
-    </main>
+.hero-content {
+    position: relative;
+    z-index: 2;
+    background: rgba(255, 255, 255, 0.6);
+    backdrop-filter: blur(5px);
+    padding: 2rem;
+    border-radius: 5px;
+}
 
-    <footer class="contact">
-        <h3>CONECTEMOS</h3>
-        <div class="social-links">
-            <a href="https://www.linkedin.com/in/diego-chicaiza-tenemaza" target="_blank">LinkedIn</a>
-            <a href="mailto:dichicaiza3@espe.edu.ec">Correo</a>
-            <a href="https://github.com/htmlpapu" target="_blank">GitHub</a>
-        </div>
-    </footer>
+.hero h1 {
+    font-family: var(--font-title);
+    font-size: 4rem;
+    margin: 0;
+    letter-spacing: 5px;
+    color: var(--text-color);
+    text-shadow: 0 0 5px var(--accent-blue);
+}
 
-    <script src="script.js"></script>
-</body>
-</html>
+.subtitle {
+    font-size: 1.2rem;
+    margin: 0.5rem 0 2rem 0;
+}
+
+.keywords {
+    font-size: 1.5rem;
+    height: 30px;
+}
+
+#typing-effect::after {
+    content: '_';
+    animation: blink 0.7s infinite;
+    color: var(--accent-blue);
+}
+
+@keyframes blink {
+    50% { opacity: 0; }
+}
+
+main {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 4rem 1rem;
+}
+
+.projects-intro, .consulting-projects, .art-gallery, .contact {
+    text-align: center;
+    margin-bottom: 3rem;
+}
+
+h2, h3 {
+    font-family: var(--font-title);
+    letter-spacing: 3px;
+    color: var(--text-color);
+}
+
+h2 {
+    font-size: 2.5rem;
+}
+
+.project-card-bi {
+    background: #fff;
+    border: 1px solid var(--border-color);
+    border-radius: 10px;
+    padding: 2rem;
+    margin-bottom: 4rem;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+}
+
+.project-info h3 {
+    color: var(--accent-blue);
+    margin-top: 0;
+}
+
+.powerbi-embed iframe {
+    border-radius: 5px;
+    border: 1px solid var(--border-color);
+}
+
+.consulting-projects {
+    padding-top: 2rem;
+}
+
+.project-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 2rem;
+}
+
+.doc-card {
+    background: #fff;
+    border: 1px solid var(--border-color);
+    border-radius: 10px;
+    padding: 2rem;
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.doc-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 30px rgba(0,0,0,0.1);
+}
+
+.ministry-logo {
+    max-height: 50px;
+    margin-bottom: 1rem;
+}
+
+.doc-card h3 {
+    font-size: 1.2rem;
+}
+
+.btn-view {
+    display: inline-block;
+    margin-top: 1.5rem;
+    padding: 0.8rem 1.5rem;
+    background-color: var(--accent-blue);
+    color: #fff;
+    text-decoration: none;
+    border-radius: 5px;
+    font-family: var(--font-title);
+    transition: background-color 0.3s ease;
+}
+
+.btn-view:hover {
+    background-color: #008fbf;
+}
+
+
+.art-gallery {
+    padding-top: 2rem;
+}
+
+.gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1rem;
+}
+
+.gallery-grid img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 5px;
+    border: 1px solid var(--border-color);
+}
+
+.contact {
+    padding: 4rem 1rem;
+}
+
+.social-links a {
+    color: var(--accent-blue);
+    text-decoration: none;
+    font-size: 1.2rem;
+    margin: 0 1rem;
+    transition: color 0.3s ease;
+}
+
+.social-links a:hover {
+    color: var(--text-color);
+}
