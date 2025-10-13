@@ -1,192 +1,185 @@
-:root {
-    --bg-color: #ffffff;
-    --text-color: #2c2c2c;
-    --accent-blue: #00A3E0;
-    --accent-purple: #9d8aff;
-    --pixel-cyan: #00ffff;
-    --pixel-magenta: #ff00ff;
-    --font-title: 'Teko', sans-serif;
-    --font-body: 'Roboto Mono', monospace;
-}
-
+/* --- ESTILOS GLOBALES --- */
 body {
-    background-color: var(--bg-color);
-    background-image: url('https://i.pinimg.com/736x/ad/39/b7/ad39b7c3e6cd97f6c6198460ecc4e5af.jpg');
-    background-size: 400px;
-    background-attachment: fixed;
-    color: var(--text-color);
-    font-family: var(--font-body);
+    background-color: #F5F3EF; /* Un color crema/hueso como en tus imágenes */
+    font-family: 'Bebas Neue', sans-serif;
+    color: #2c2c2c;
     margin: 0;
-}
-
-.container {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 2rem;
-}
-
-/* --- HEADER --- */
-.hero {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    min-height: 80vh;
-    padding: 4rem 0;
-    position: relative;
-    border-bottom: 2px solid #eee;
-}
-
-.hero-text {
-    position: absolute;
-    top: 50%;
-    left: 10%;
-    transform: translateY(-50%);
-    z-index: 2;
-    background: rgba(255, 255, 255, 0.8);
-    padding: 1rem;
-    backdrop-filter: blur(4px);
-}
-
-.name-title {
-    font-family: var(--font-title);
-    font-size: 8rem;
-    line-height: 1;
-    margin: 0;
-    color: var(--text-color);
-}
-
-.subtitle {
-    font-family: var(--font-title);
-    font-size: 3rem;
-    line-height: 1;
-    margin: 0;
-    letter-spacing: 2px;
-}
-
-.hero-image-container {
-    width: 60%;
-    margin-left: auto;
-    position: relative;
-}
-
-.hero-character {
-    width: 100%;
-    height: auto;
-}
-
-/* --- SECTIONS --- */
-.section-title {
-    font-family: var(--font-title);
-    font-size: 4rem;
-    text-align: center;
-    letter-spacing: 3px;
-    margin: 4rem 0;
-}
-
-/* --- STRENGTHS --- */
-.strengths-grid {
+    padding: 20px;
     display: flex;
     flex-direction: column;
-    gap: 4rem;
-}
-
-.strength-item {
-    display: flex;
     align-items: center;
-    gap: 2rem;
+    overflow-x: hidden;
 }
 
-/* Alineación alterna para crear dinamismo */
-.strength-item:nth-child(even) {
-    flex-direction: row-reverse;
-    text-align: right;
+/* --- EFECTO DE TEXTO NEÓN (La Magia) --- */
+.neon-text {
+    font-size: 5rem;
+    color: #E0F7FA; /* Color base del texto */
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    /* Sombra múltiple para crear el efecto neón cian y el borde magenta */
+    text-shadow: 
+        0 0 5px rgba(0, 255, 255, 0.8),
+        0 0 10px rgba(0, 255, 255, 0.8),
+        3px 3px 2px rgba(255, 0, 191, 0.9);
+    animation: flicker 3s infinite alternate; /* Animación de parpadeo sutil */
 }
 
-.icon-container {
-    border: 4px solid var(--text-color);
-    padding: 1rem;
-    background-color: var(--bg-color);
-    box-shadow: 10px 10px 0 var(--accent-blue);
-    flex-shrink: 0;
+@keyframes flicker {
+  0%, 18%, 22%, 25%, 53%, 57%, 100% {
+      text-shadow:
+        0 0 4px rgba(0, 255, 255, 0.7),
+        0 0 8px rgba(0, 255, 255, 0.7),
+        3px 3px 2px rgba(255, 0, 191, 0.8);
+  }
+  20%, 24%, 55% {       
+      text-shadow: none;
+  }
 }
 
-.icon-container img {
+/* --- SECCIÓN DE BIENVENIDA (HEADER) --- */
+.header-section {
+    position: relative;
+    width: 100%;
+    max-width: 675px; /* Ancho de tu imagen de portada */
+    margin-bottom: 50px;
+    animation: fadeIn 1s ease-in-out;
+}
+
+.header-image {
+    width: 100%;
+    height: auto;
     display: block;
-    width: 150px;
-    height: 150px;
+    border-radius: 8px;
 }
 
-.strength-text h3 {
-    font-family: var(--font-title);
-    font-size: 2.5rem;
-    margin: 0 0 0.5rem;
-    color: var(--text-color);
-}
-
-.strength-text p {
-    margin: 0;
-    font-size: 1rem;
-    line-height: 1.6;
-}
-
-/* --- PROJECTS BI --- */
-.powerbi-embed {
-    border: 2px solid #eee;
-    padding: 1rem;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.05);
-}
-
-.powerbi-embed iframe {
-    display: block;
-}
-
-/* --- FOOTER --- */
-.contact {
+.header-text {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
     text-align: center;
-    padding: 4rem 1rem;
-    margin-top: 4rem;
-    border-top: 2px solid #eee;
 }
 
-.contact h3 {
-    font-family: var(--font-title);
-    font-size: 2rem;
+.header-text h1 {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: clamp(4rem, 10vw, 8rem); /* Tamaño de fuente adaptable */
+    line-height: 0.8;
+    margin: 0;
+    color: #8E44AD; /* Un morado vibrante */
+     text-shadow: 
+        0 0 5px rgba(0, 255, 255, 0.8),
+        3px 3px 0px rgba(0, 230, 230, 1);
 }
 
-.social-links a {
-    color: var(--accent-blue);
-    text-decoration: none;
-    font-size: 1.2rem;
-    margin: 0 1rem;
+.analista-box {
+    background-color: #fff;
+    border: 2px dotted #8E44AD;
+    padding: 8px 15px;
+    display: inline-block;
+    margin-top: 20px;
+    font-family: 'VT323', monospace; /* Fuente pixel art */
+    font-size: clamp(1.2rem, 3vw, 1.8rem);
+    color: #333;
+}
+
+.analista-box::after {
+    content: '_';
+    animation: blink 1s step-end infinite; /* Animación de cursor parpadeante */
     font-weight: bold;
-    transition: color 0.3s ease;
+    margin-left: 5px;
 }
 
-.social-links a:hover {
-    color: var(--accent-purple);
+@keyframes blink {
+    from, to { opacity: 0 }
+    50% { opacity: 1 }
 }
 
-/* --- RESPONSIVE --- */
+/* --- SECCIÓN DE PANELES --- */
+.panels-section {
+    display: flex;
+    justify-content: center;
+    gap: 25px;
+    flex-wrap: wrap; /* Para que se adapte a pantallas pequeñas */
+    margin-bottom: 60px;
+    animation: fadeIn 1.5s ease-in-out;
+}
+
+.panel {
+    width: 100%;
+    max-width: 300px; /* Un tamaño manejable para los paneles */
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.panel:hover {
+    transform: translateY(-10px) scale(1.03);
+    box-shadow: 0 10px 25px rgba(142, 68, 173, 0.4);
+}
+
+.panel img {
+    width: 100%;
+    display: block;
+}
+
+/* --- SECCIÓN DEL DASHBOARD DE POWER BI --- */
+.dashboard-section {
+    width: 100%;
+    max-width: 900px; /* Un ancho generoso para el dashboard */
+    text-align: center;
+    animation: fadeIn 2s ease-in-out;
+}
+
+.dashboard-section h2 {
+    margin-bottom: 30px;
+}
+
+.dashboard-container {
+    border: 3px solid #8E44AD;
+    border-radius: 8px;
+    padding: 10px;
+    background: #fff;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+}
+
+iframe {
+    width: 100%;
+    height: 500px; /* Altura inicial, se puede ajustar */
+    border: none;
+}
+
+.disclaimer {
+    font-family: Arial, sans-serif;
+    font-size: 0.8rem;
+    color: #888;
+    margin-top: 15px;
+    font-style: italic;
+}
+
+/* --- ANIMACIÓN DE ENTRADA --- */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* --- RESPONSIVE DESIGN --- */
 @media (max-width: 768px) {
-    .hero {
+    .neon-text {
+        font-size: 3rem;
+    }
+    .panels-section {
         flex-direction: column;
-        min-height: auto;
+        align-items: center;
     }
-    .hero-text {
-        position: static;
-        transform: none;
-        text-align: center;
-        background: none;
-        backdrop-filter: none;
-        padding: 0;
-        margin-bottom: 2rem;
-    }
-    .hero-image-container {
-        width: 100%;
-        margin-left: 0;
-    }
-    .strength-item, .strength-item:nth-child(even) {
-        flex-direction: column;
-        text-align: center;
+    iframe {
+        height: 400px;
     }
 }
