@@ -3,80 +3,98 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Diego Chicaiza | Artista & Analista</title>
-    <link rel="stylesheet" href="style.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@400;700&family=Teko:wght@700&display=swap" rel="stylesheet">
-</head>
-<body>
+    <title>Diego Isaac - Portafolio</title>
+    <style>
+        /* --- FUENTES Y ESTILOS GLOBALES --- */
+        @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=VT323&display=swap');
 
-    <div class="container">
-        <header class="hero">
-            <div class="hero-text">
-                <h1 class="name-title">DIEGO ISAAC</h1>
-                <p class="subtitle">ANALISTA</p>
-            </div>
-            <div class="hero-image-container">
-                <img src="https://github.com/htmlpapu/portafolio-assets/blob/main/PERSONAJE%20PRINCIPAL.png?raw=true" alt="Ilustración de Diego y un gato con gafas de sol" class="hero-character">
-            </div>
-        </header>
+        body {
+            background-color: #F5F3EF; /* Un color crema/hueso como en tus imágenes */
+            font-family: 'Bebas Neue', sans-serif;
+            color: #2c2c2c;
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            overflow-x: hidden;
+        }
 
-        <main>
-            <section class="strengths">
-                <h2 class="section-title">FORTALEZAS_CLAVE</h2>
-                <div class="strengths-grid">
-                    
-                    <div class="strength-item">
-                        <div class="icon-container">
-                            <img src="https://i.imgur.com/KkPq02s.png" alt="Icono Pixel Art de Análisis de Datos">
-                        </div>
-                        <div class="strength-text">
-                            <h3>Análisis de Datos</h3>
-                            <p>Capacidad para transformar datos complejos en insights visuales y estrategias accionables que impulsan la toma de decisiones.</p>
-                        </div>
-                    </div>
+        /* --- EFECTO DE TEXTO NEÓN (La Magia) --- */
+        .neon-text {
+            font-size: 5rem;
+            color: #E0F7FA; /* Color base del texto */
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            /* Sombra múltiple para crear el efecto neón cian y el borde magenta */
+            text-shadow: 
+                0 0 5px rgba(0, 255, 255, 0.8),
+                0 0 10px rgba(0, 255, 255, 0.8),
+                3px 3px 2px rgba(255, 0, 191, 0.9);
+            animation: flicker 3s infinite alternate; /* Animación de parpadeo sutil */
+        }
+        
+        @keyframes flicker {
+          0%, 18%, 22%, 25%, 53%, 57%, 100% {
+              text-shadow:
+                0 0 4px rgba(0, 255, 255, 0.7),
+                0 0 8px rgba(0, 255, 255, 0.7),
+                3px 3px 2px rgba(255, 0, 191, 0.8);
+          }
+          20%, 24%, 55% {       
+              text-shadow: none;
+          }
+        }
 
-                    <div class="strength-item">
-                         <div class="icon-container">
-                            <img src="https://i.imgur.com/cE0G3fD.png" alt="Icono Pixel Art de Idiomas">
-                        </div>
-                        <div class="strength-text">
-                            <h3>Idiomas (Inglés C1)</h3>
-                            <p>Experiencia en reuniones y coordinación de operaciones logísticas con equipos y proveedores internacionales en inglés.</p>
-                        </div>
-                    </div>
+        /* --- SECCIÓN DE BIENVENIDA (HEADER) --- */
+        .header-section {
+            position: relative;
+            width: 100%;
+            max-width: 675px; /* Ancho de tu imagen de portada */
+            margin-bottom: 50px;
+            animation: fadeIn 1s ease-in-out;
+        }
 
-                    <div class="strength-item">
-                        <div class="icon-container">
-                           <img src="https://i.imgur.com/YwN8n4h.png" alt="Icono Pixel Art de Logística">
-                       </div>
-                       <div class="strength-text">
-                           <h3>Logística y Cadena de Suministro</h3>
-                           <p>Gestión del ciclo completo de inventarios y optimización de la cadena de suministro, desde el proveedor hasta el cliente final.</p>
-                       </div>
-                   </div>
+        .header-image {
+            width: 100%;
+            height: auto;
+            display: block;
+            border-radius: 8px;
+        }
 
-                </div>
-            </section>
+        .header-text {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            text-align: center;
+        }
 
-            <section class="projects-bi">
-                <h2 class="section-title">PROYECTOS_BI</h2>
-                <div class="powerbi-embed">
-                    <iframe title="Diagnóstico de Rendimiento" width="100%" height="759" src="https://app.powerbi.com/view?r=eyJrIjoiZWUzMjM3NjMtYWM2MS00YjQ3LTkzM2YtMDg0NzU1YWIzYjBhIiwidCI6ImFhZjAxNDIwLThmMzItNDllNS1iY2VmLTc5NTM0MGMxZjk2YSJ9&pageName=59c1baed2a705da90000" frameborder="0" allowFullScreen="true"></iframe>
-                </div>
-            </section>
-        </main>
-    </div>
+        .header-text h1 {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: clamp(4rem, 10vw, 8rem); /* Tamaño de fuente adaptable */
+            line-height: 0.8;
+            margin: 0;
+            color: #8E44AD; /* Un morado vibrante */
+             text-shadow: 
+                0 0 5px rgba(0, 255, 255, 0.8),
+                3px 3px 0px rgba(0, 230, 230, 1);
+        }
 
-    <footer class="contact">
-        <h3>CONECTEMOS</h3>
-        <div class="social-links">
-            <a href="https://www.linkedin.com/in/diego-chicaiza-tenemaza" target="_blank">LinkedIn</a>
-            <a href="mailto:dichicaiza3@espe.edu.ec">Correo</a>
-            <a href="https://github.com/htmlpapu" target="_blank">GitHub</a>
-        </div>
-    </footer>
-
-</body>
-</html>
+        .analista-box {
+            background-color: #fff;
+            border: 2px dotted #8E44AD;
+            padding: 8px 15px;
+            display: inline-block;
+            margin-top: 20px;
+            font-family: 'VT323', monospace; /* Fuente pixel art */
+            font-size: clamp(1.2rem, 3vw, 1.8rem);
+            color: #333;
+        }
+        
+        .analista-box::after {
+            content: '_';
+            animation: blink 1s step-end infinite; /* Animación de cursor parpadeante */
+            font-weight: bold;
+            margin-left: 5px;
+        }
