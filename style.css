@@ -1,8 +1,9 @@
 :root {
-    --bg-color: #1a1a1a;
-    --primary-text: #e0e0e0;
-    --accent-pink: #ff80bf;
-    --accent-blue: #80dfff;
+    --bg-color: #0A0F1A;
+    --primary-text: #D0D0E0;
+    --accent-blue: #00BFFF;
+    --accent-blue-dark: #1E3A5F;
+    --border-color: rgba(0, 191, 255, 0.2);
     --font-title: 'Chakra Petch', sans-serif;
     --font-body: 'Roboto Mono', monospace;
 }
@@ -13,44 +14,57 @@ html {
 
 body {
     background-color: var(--bg-color);
-    background-image: url('https://i.pinimg.com/1200x/f9/8f/c4/f98fc443ef973f67652b0f814e18bc27.jpg');
+    background-image: url('https://i.pinimg.com/1200x/79/6d/6b/796d6b0005258f51cb089856440d57c0.jpg');
     background-size: cover;
     background-attachment: fixed;
+    background-position: center center;
     color: var(--primary-text);
     font-family: var(--font-body);
     margin: 0;
     line-height: 1.6;
-}
-
-.noise {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-image: url('https://i.pinimg.com/736x/0c/2c/f2/0c2cf218d609e4fe1429dd75a5848828.jpg');
-    opacity: 0.05;
-    z-index: -1;
-    pointer-events: none;
+    overflow-x: hidden;
 }
 
 .hero {
-    height: 100vh;
+    min-height: 100vh;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     text-align: center;
     padding: 0 1rem;
+    position: relative;
+}
+
+/* --- EFECTO DE SOLAPAMIENTO: Elemento decorativo detrás del texto --- */
+.hero::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 300px;
+    height: 300px;
+    background-image: url('https://i.imgur.com/vHwV9oW.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+    opacity: 0.1;
+    z-index: 1;
+}
+
+.hero-content {
+    position: relative;
+    z-index: 2;
 }
 
 .profile-illustration {
     width: 150px;
     height: 150px;
     border-radius: 50%;
-    border: 3px solid var(--accent-pink);
+    border: 3px solid var(--accent-blue);
     margin-bottom: 1.5rem;
     object-fit: cover;
+    box-shadow: 0 0 20px rgba(0, 191, 255, 0.5);
 }
 
 .hero h1 {
@@ -59,27 +73,24 @@ body {
     margin: 0;
     letter-spacing: 5px;
     color: #fff;
-    text-shadow: 0 0 10px var(--accent-pink), 0 0 20px var(--accent-pink), 0 0 5px rgba(0,0,0,0.8);
+    text-shadow: 0 0 10px var(--accent-blue);
 }
 
 .subtitle {
     font-size: 1.2rem;
     margin: 0.5rem 0 2rem 0;
-    color: var(--accent-blue);
-    text-shadow: 0 0 3px rgba(0,0,0,0.7);
+    color: var(--primary-text);
 }
 
 .keywords {
     font-size: 1.5rem;
     height: 30px;
-    color: var(--primary-text);
-    text-shadow: 0 0 3px rgba(0,0,0,0.7);
 }
 
 #typing-effect::after {
     content: '_';
     animation: blink 0.7s infinite;
-    color: var(--accent-pink);
+    color: var(--accent-blue);
 }
 
 @keyframes blink {
@@ -89,7 +100,7 @@ body {
 main {
     max-width: 1200px;
     margin: 0 auto;
-    padding: 6rem 1rem; /* Aumento de espaciado */
+    padding: 4rem 1rem;
 }
 
 .projects-intro, .art-gallery, .contact {
@@ -101,7 +112,6 @@ h2, h3 {
     font-family: var(--font-title);
     letter-spacing: 3px;
     color: #fff;
-    text-shadow: 0 0 5px rgba(0, 0, 0, 0.7); /* Mejora de contraste */
 }
 
 h2 {
@@ -109,47 +119,38 @@ h2 {
 }
 
 .project-card {
-    background: rgba(26, 26, 26, 0.8);
+    background: rgba(10, 15, 26, 0.8);
     backdrop-filter: blur(10px);
-    border: 1px solid rgba(255, 128, 191, 0.2);
+    border: 1px solid var(--border-color);
     border-radius: 10px;
     padding: 2rem;
     margin-bottom: 4rem;
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: 2rem;
-    align-items: center;
+    position: relative;
 }
 
-@media (min-width: 900px) {
-    .project-card {
-        grid-template-columns: 300px 1fr;
-    }
+/* --- EFECTO DE SOLAPAMIENTO: Barra decorativa en la tarjeta --- */
+.project-card::after {
+    content: '';
+    position: absolute;
+    top: 1rem;
+    right: -2rem;
+    width: 150px;
+    height: 30px;
+    background-image: url('https://i.imgur.com/k2e22A4.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+    opacity: 0.5;
+    pointer-events: none;
 }
 
 .project-info h3 {
-    color: var(--accent-pink);
+    color: var(--accent-blue);
     margin-top: 0;
-}
-
-.project-info p {
-    text-shadow: 0 0 3px rgba(0, 0, 0, 0.5); /* Mejora de contraste */
-}
-
-.data-disclaimer {
-    font-size: 0.9rem;
-    font-style: italic;
-    color: #a0a0a0;
-    background-color: rgba(0, 0, 0, 0.2);
-    border-left: 3px solid var(--accent-blue);
-    padding: 10px;
-    margin-top: 1.5rem;
-    border-radius: 4px;
 }
 
 .powerbi-embed iframe {
     border-radius: 5px;
-    border: 1px solid rgba(128, 223, 255, 0.2);
+    border: 1px solid var(--border-color);
 }
 
 .art-gallery {
@@ -164,23 +165,25 @@ h2 {
 
 .gallery-grid img {
     width: 100%;
-    height: auto;
+    height: 100%;
+    object-fit: cover;
     border-radius: 5px;
+    border: 1px solid var(--border-color);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .gallery-grid img:hover {
-    transform: scale(1.05);
+    transform: scale(1.03);
     box-shadow: 0 0 20px var(--accent-blue);
 }
 
 .contact {
-    padding: 6rem 1rem; /* Aumento de espaciado */
+    padding: 4rem 1rem;
     background: rgba(0,0,0,0.3);
 }
 
 .social-links a {
-    color: var(--accent-pink);
+    color: var(--accent-blue);
     text-decoration: none;
     font-size: 1.2rem;
     margin: 0 1rem;
@@ -191,4 +194,3 @@ h2 {
     color: #fff;
     text-shadow: 0 0 10px var(--accent-blue);
 }
-
