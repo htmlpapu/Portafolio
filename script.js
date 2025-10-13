@@ -2,51 +2,71 @@
 document.addEventListener('DOMContentLoaded', () => {
 
     /**
-     * SCRIPT 1: EFECTO MÁQUINA DE ESCRIBIR (TYPEWRITER)
-     * Escribe un texto letra por letra en un elemento específico.
+     * SCRIPT 1: EFECTO MÁQUINA DE ESCRIBIR AVANZADO (TU IDEA, CORREGIDA)
+     * Escribe y borra una lista de palabras en un ciclo infinito.
      */
-    const typewriterElement = document.getElementById('typewriter');
-    if (typewriterElement) {
-        const text = '<analista>';
-        let index = 0;
-        
+    const typingElement = document.getElementById('typing-effect');
+    if (typingElement) {
+        const keywords = ["<Analista>", "<Creativo>", "<Estratega>", "<Curioso>", "<Resolutivo>"];
+        let keywordIndex = 0; // Índice para la palabra actual en el array
+        let charIndex = 0;    // Índice para el carácter actual de la palabra
+        let isDeleting = false;
+
         function type() {
-            if (index < text.length) {
-                typewriterElement.textContent += text.charAt(index);
-                index++;
-                setTimeout(type, 120); // Velocidad de escritura
+            const currentWord = keywords[keywordIndex];
+
+            if (isDeleting) {
+                // Borrando...
+                typingElement.textContent = currentWord.substring(0, charIndex - 1);
+                charIndex--;
+            } else {
+                // Escribiendo...
+                typingElement.textContent = currentWord.substring(0, charIndex + 1);
+                charIndex++;
             }
+
+            // Lógica de cambio de estado
+            if (!isDeleting && charIndex === currentWord.length) {
+                // Terminó de escribir, esperar y empezar a borrar
+                isDeleting = true;
+                setTimeout(type, 2000); // Pausa antes de borrar
+                return;
+            } else if (isDeleting && charIndex === 0) {
+                // Terminó de borrar, pasar a la siguiente palabra
+                isDeleting = false;
+                keywordIndex = (keywordIndex + 1) % keywords.length; // Ciclo infinito
+                setTimeout(type, 500); // Pausa antes de escribir la nueva palabra
+                return;
+            }
+
+            // Velocidad de escritura/borrado
+            const typeSpeed = isDeleting ? 75 : 150;
+            setTimeout(type, typeSpeed);
         }
         
-        // Inicia el efecto después de un breve retraso para que el usuario pueda verlo
-        setTimeout(type, 500);
+        // Iniciar la animación
+        type();
     }
+
 
     /**
      * SCRIPT 2: EFECTO PARALLAX SUTIL EN EL HEADER
-     * Mueve el fondo del header más lento que el scroll para crear profundidad.
      */
     const parallaxHeader = document.getElementById('parallax-header');
     if (parallaxHeader) {
         window.addEventListener('scroll', () => {
             const scrollPosition = window.pageYOffset;
-            // El multiplicador (0.4) controla la velocidad del parallax. Más bajo = más lento.
             parallaxHeader.style.backgroundPositionY = `${scrollPosition * 0.4}px`;
         });
     }
 
     /**
      * SCRIPT 3: ANIMACIONES AL HACER SCROLL (SCROLL REVEAL)
-     * Usa IntersectionObserver para añadir una clase a los elementos cuando entran en la pantalla.
-     * Es la forma más moderna y eficiente de hacer esto.
      */
     const scrollElements = document.querySelectorAll('[data-scroll]');
-
-    const elementInView = (el, dividend = 1) => {
+    const elementInView = (el) => {
         const elementTop = el.getBoundingClientRect().top;
-        return (
-            elementTop <= (window.innerHeight || document.documentElement.clientHeight) / dividend
-        );
+        return elementTop <= (window.innerHeight || document.documentElement.clientHeight);
     };
 
     const displayScrollElement = (element) => {
@@ -55,15 +75,12 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const handleScrollAnimation = () => {
         scrollElements.forEach((el) => {
-            if (elementInView(el, 1.25)) {
+            if (elementInView(el)) {
                 displayScrollElement(el);
             }
         });
     }
     
-    // Ejecuta la función una vez al cargar por si hay elementos ya visibles
     handleScrollAnimation();
-    // Y luego la ejecuta cada vez que el usuario hace scroll
     window.addEventListener('scroll', handleScrollAnimation);
-
 });
