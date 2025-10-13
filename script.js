@@ -1,5 +1,5 @@
 document.addEventListener('DOMContentLoaded', function() {
-    const textToType = 'analista';
+    const textToType = 'Lic. Comercio Exterior y Negociación Internacional';
     const typingElement = document.getElementById('typing-analyst');
     let index = 0;
 
@@ -12,3 +12,4 @@ document.addEventListener('DOMContentLoaded', function() {
     }
     typeAnalyst();
 });
+
