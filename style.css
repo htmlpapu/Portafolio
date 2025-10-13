@@ -1,9 +1,8 @@
 :root {
-    --bg-color: #0A0F1A;
-    --primary-text: #D0D0E0;
-    --accent-blue: #00BFFF;
-    --accent-blue-dark: #1E3A5F;
-    --border-color: rgba(0, 191, 255, 0.2);
+    --bg-color: #f4f4f9;
+    --text-color: #1a1a1a;
+    --accent-blue: #00A3E0; /* Un azul cian vibrante de la imagen de Miku */
+    --border-color: rgba(26, 26, 26, 0.1);
     --font-title: 'Chakra Petch', sans-serif;
     --font-body: 'Roboto Mono', monospace;
 }
@@ -14,57 +13,47 @@ html {
 
 body {
     background-color: var(--bg-color);
-    background-image: url('https://i.pinimg.com/1200x/79/6d/6b/796d6b0005258f51cb089856440d57c0.jpg');
-    background-size: cover;
+    background-image: url('https://i.pinimg.com/736x/ad/39/b7/ad39b7c3e6cd97f6c6198460ecc4e5af.jpg');
+    background-size: 300px; /* Textura sutil, no imagen de fondo completa */
     background-attachment: fixed;
-    background-position: center center;
-    color: var(--primary-text);
+    color: var(--text-color);
     font-family: var(--font-body);
     margin: 0;
     line-height: 1.6;
-    overflow-x: hidden;
 }
 
 .hero {
-    min-height: 100vh;
+    height: 100vh;
     display: flex;
-    flex-direction: column;
     justify-content: center;
     align-items: center;
     text-align: center;
     padding: 0 1rem;
     position: relative;
+    background-image: url('https://i.pinimg.com/736x/eb/ae/54/ebae54132a722ddccd73db9e2a195505.jpg');
+    background-size: cover;
+    background-position: center 30%;
 }
 
-/* --- EFECTO DE SOLAPAMIENTO: Elemento decorativo detrás del texto --- */
+/* --- EFECTO DE SUPERPOSICIÓN: Filtro de color sobre la imagen --- */
 .hero::before {
     content: '';
     position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width: 300px;
-    height: 300px;
-    background-image: url('https://i.imgur.com/vHwV9oW.png');
-    background-size: contain;
-    background-repeat: no-repeat;
-    opacity: 0.1;
-    z-index: 1;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(255, 255, 255, 0.3);
+    backdrop-filter: brightness(1.2) saturate(0.5);
 }
 
 .hero-content {
     position: relative;
     z-index: 2;
-}
-
-.profile-illustration {
-    width: 150px;
-    height: 150px;
-    border-radius: 50%;
-    border: 3px solid var(--accent-blue);
-    margin-bottom: 1.5rem;
-    object-fit: cover;
-    box-shadow: 0 0 20px rgba(0, 191, 255, 0.5);
+    background: rgba(255, 255, 255, 0.6);
+    backdrop-filter: blur(5px);
+    padding: 2rem;
+    border-radius: 5px;
 }
 
 .hero h1 {
@@ -72,14 +61,13 @@ body {
     font-size: 4rem;
     margin: 0;
     letter-spacing: 5px;
-    color: #fff;
-    text-shadow: 0 0 10px var(--accent-blue);
+    color: var(--text-color);
+    text-shadow: 0 0 5px var(--accent-blue);
 }
 
 .subtitle {
     font-size: 1.2rem;
     margin: 0.5rem 0 2rem 0;
-    color: var(--primary-text);
 }
 
 .keywords {
@@ -103,7 +91,7 @@ main {
     padding: 4rem 1rem;
 }
 
-.projects-intro, .art-gallery, .contact {
+.projects-intro, .consulting-projects, .art-gallery, .contact {
     text-align: center;
     margin-bottom: 3rem;
 }
@@ -111,36 +99,20 @@ main {
 h2, h3 {
     font-family: var(--font-title);
     letter-spacing: 3px;
-    color: #fff;
+    color: var(--text-color);
 }
 
 h2 {
     font-size: 2.5rem;
 }
 
-.project-card {
-    background: rgba(10, 15, 26, 0.8);
-    backdrop-filter: blur(10px);
+.project-card-bi {
+    background: #fff;
     border: 1px solid var(--border-color);
     border-radius: 10px;
     padding: 2rem;
     margin-bottom: 4rem;
-    position: relative;
-}
-
-/* --- EFECTO DE SOLAPAMIENTO: Barra decorativa en la tarjeta --- */
-.project-card::after {
-    content: '';
-    position: absolute;
-    top: 1rem;
-    right: -2rem;
-    width: 150px;
-    height: 30px;
-    background-image: url('https://i.imgur.com/k2e22A4.png');
-    background-size: contain;
-    background-repeat: no-repeat;
-    opacity: 0.5;
-    pointer-events: none;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.05);
 }
 
 .project-info h3 {
@@ -152,6 +124,56 @@ h2 {
     border-radius: 5px;
     border: 1px solid var(--border-color);
 }
+
+.consulting-projects {
+    padding-top: 2rem;
+}
+
+.project-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 2rem;
+}
+
+.doc-card {
+    background: #fff;
+    border: 1px solid var(--border-color);
+    border-radius: 10px;
+    padding: 2rem;
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.doc-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 30px rgba(0,0,0,0.1);
+}
+
+.ministry-logo {
+    max-height: 50px;
+    margin-bottom: 1rem;
+}
+
+.doc-card h3 {
+    font-size: 1.2rem;
+}
+
+.btn-view {
+    display: inline-block;
+    margin-top: 1.5rem;
+    padding: 0.8rem 1.5rem;
+    background-color: var(--accent-blue);
+    color: #fff;
+    text-decoration: none;
+    border-radius: 5px;
+    font-family: var(--font-title);
+    transition: background-color 0.3s ease;
+}
+
+.btn-view:hover {
+    background-color: #008fbf;
+}
+
 
 .art-gallery {
     padding-top: 2rem;
@@ -169,17 +191,10 @@ h2 {
     object-fit: cover;
     border-radius: 5px;
     border: 1px solid var(--border-color);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.gallery-grid img:hover {
-    transform: scale(1.03);
-    box-shadow: 0 0 20px var(--accent-blue);
 }
 
 .contact {
     padding: 4rem 1rem;
-    background: rgba(0,0,0,0.3);
 }
 
 .social-links a {
@@ -187,10 +202,9 @@ h2 {
     text-decoration: none;
     font-size: 1.2rem;
     margin: 0 1rem;
-    transition: color 0.3s ease, text-shadow 0.3s ease;
+    transition: color 0.3s ease;
 }
 
 .social-links a:hover {
-    color: #fff;
-    text-shadow: 0 0 10px var(--accent-blue);
+    color: var(--text-color);
 }
