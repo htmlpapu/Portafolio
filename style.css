@@ -27,7 +27,8 @@ body {
     align-items: center;
 }
 
-.header-overlay {
+.header-overlay
+{
     position: absolute;
     top: 0;
     left: 0;
@@ -36,14 +37,16 @@ body {
     background-color: rgba(248, 244, 236, 0.4);
 }
 
-.header-text {
+.header-text
+{
     position: absolute;
     left: 10%;
     top: 25%;
     z-index: 2;
 }
 
-.glitch-text {
+.glitch-text
+{
     font-family: var(--font-title);
     font-size: 8vw;
     line-height: 1;
@@ -53,7 +56,8 @@ body {
     animation: glitch 1s infinite;
 }
 
-.glitch-text::before, .glitch-text::after {
+.glitch-text::before,
+.glitch-text::after {
     content: attr(data-text);
     position: absolute;
     top: 0;
@@ -62,21 +66,24 @@ body {
     height: 100%;
 }
 
-.glitch-text::before {
+.glitch-text::before
+{
     left: -2px;
     text-shadow: 1px 0 var(--accent-blue);
     background-color: var(--bg-color);
     animation: glitch-anim-2 2s infinite;
 }
 
-.glitch-text::after {
+.glitch-text::after
+{
     left: 2px;
     text-shadow: -1px 0 var(--accent-purple);
     background-color: var(--bg-color);
     animation: glitch-anim-3 3s infinite;
 }
 
-.analyst-text {
+.analyst-text
+{
     font-family: var(--font-title);
     font-size: 3vw;
     line-height: 1;
@@ -84,7 +91,8 @@ body {
     color: var(--accent-blue);
 }
 
-@keyframes glitch {
+@keyframes
+glitch {
     0% { transform: translate(0); }
     20% { transform: translate(-5px, 5px); }
     40% { transform: translate(-5px, -5px); }
@@ -93,7 +101,8 @@ body {
     100% { transform: translate(0); }
 }
 
-@keyframes glitch-anim-2 {
+@keyframes
+glitch-anim-2 {
     0% { clip: rect(20px, 9999px, 50px, 0); }
     10% { clip: rect(30px, 9999px, 80px, 0); }
     20% { clip: rect(100px, 9999px, 60px, 0); }
@@ -107,7 +116,8 @@ body {
     100% { clip: rect(20px, 9999px, 50px, 0); }
 }
 
-@keyframes glitch-anim-3 {
+@keyframes
+glitch-anim-3 {
     0% { clip: rect(10px, 9999px, 40px, 0); }
     15% { clip: rect(80px, 9999px, 20px, 0); }
     30% { clip: rect(30px, 9999px, 90px, 0); }
@@ -119,7 +129,8 @@ body {
 }
 
 /* --- ICON PANELS --- */
-.icon-panels {
+.icon-panels
+{
     max-width: 1000px;
     margin: 4rem auto;
     display: flex;
@@ -128,26 +139,31 @@ body {
     gap: 2rem;
 }
 
-.panel-icon {
+.panel-icon
+{
     width: 25vw;
     max-width: 300px;
     height: auto;
     border: 2px solid var(--text-color-dark);
-    box-shadow: 10px 10px 0 var(--accent-purple), -10px -10px 0 var(--accent-blue);
+    box-shadow: 10px 10px 0
+var(--accent-purple), -10px -10px 0 var(--accent-blue);
     transition: transform 0.3s ease;
 }
 
-.panel-icon:hover {
+.panel-icon:hover
+{
     transform: scale(1.05);
 }
 
 /* --- POWER BI --- */
-.powerbi-section {
+.powerbi-section
+{
     max-width: 1200px;
     margin: 4rem auto;
     padding: 2rem;
     border: 2px solid var(--text-color-dark);
-    box-shadow: 15px 15px 0 var(--accent-blue), -15px -15px 0 var(--accent-purple);
+    box-shadow: 15px 15px 0 var(--accent-blue),
+-15px -15px 0 var(--accent-purple);
 }
 
 .disclaimer {
@@ -159,9 +175,105 @@ body {
     font-size: 0.9rem;
 }
 
-.powerbi-embed iframe {
+.powerbi-embed
+iframe {
     border: none;
     border-radius: 5px;
+}
+
+/* --- CASE STUDY: FINANZAS (NUEVO CÓDIGO) --- */
+.project-case-study {
+    /* Reutilizamos el estilo de la sección de Power BI para coherencia */
+    max-width: 1200px;
+    margin: 4rem auto;
+    padding: 2rem;
+    border: 2px solid var(--text-color-dark);
+    box-shadow: 15px 15px 0 var(--accent-blue), -15px -15px 0 var(--accent-purple);
+    background-color: var(--bg-color); /* Asegura el fondo por si acaso */
+}
+
+/* Título de la nueva sección */
+.section-title {
+    font-family: var(--font-title); /* 'Chakra Petch' */
+    color: var(--accent-purple);
+    font-size: 2.5rem; /* 40px */
+    text-align: center;
+    margin-bottom: 1rem;
+}
+
+/* Párrafo de descripción */
+.section-description {
+    font-family: var(--font-body); /* 'Roboto Mono' */
+    font-size: 1rem; /* 16px */
+    max-width: 800px;
+    margin: 0 auto 2rem auto; /* Centrado */
+    text-align: center;
+    line-height: 1.7;
+}
+
+/* Contenedor del Iframe del mini-dashboard */
+.case-study-embed {
+    max-width: 900px; /* Hacemos el dashboard un poco más pequeño que el principal */
+    margin: 2rem auto;
+    border: 1px solid #ddd;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+.case-study-embed iframe {
+    /* Hacemos el iframe responsivo */
+    display: block;
+    border: none;
+    width: 100%; /* Asegura que ocupe el 100% del contenedor */
+}
+
+/* Contenedor del GIF */
+.gif-preview {
+    max-width: 900px;
+    margin: 2rem auto;
+    text-align: center;
+}
+
+.gif-preview p {
+    font-family: var(--font-body);
+    font-size: 0.9rem;
+    color: #555;
+}
+
+.gif-preview img {
+    /* Hacemos el GIF responsivo y le damos un borde */
+    width: 100%;
+    max-width: 800px; /* Límite para que no sea gigante */
+    height: auto;
+    margin-top: 1rem;
+    border: 2px solid var(--text-color-dark);
+}
+
+/* Contenedor y estilo del botón CTA */
+.cta-container {
+    text-align: center; /* Centra el botón */
+    margin-top: 2.5rem;
+}
+
+.cta-button {
+    font-family: var(--font-title);
+    font-size: 1.2rem;
+    text-transform: uppercase;
+    text-decoration: none;
+    color: var(--bg-color); /* Texto claro */
+    background-color: var(--accent-purple); /* Fondo morado */
+    
+    padding: 12px 25px;
+    border: 2px solid var(--text-color-dark);
+    box-shadow: 5px 5px 0 var(--text-color-dark);
+    
+    transition: all 0.2s ease;
+}
+
+.cta-button:hover {
+    background-color: var(--accent-blue); /* Cambio de color al pasar el mouse */
+    color: var(--text-color-dark);
+    transform: translate(2px, 2px); /* Efecto de "presionar" */
+    box-shadow: 3px 3px 0 var(--text-color-dark);
 }
 
 /* --- FOOTER --- */
@@ -180,6 +292,7 @@ body {
     transition: color 0.3s ease;
 }
 
-.social-links a:hover {
+.social-links
+a:hover {
     color: var(--accent-blue);
 }
