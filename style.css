@@ -18,7 +18,7 @@ body {
 /* --- HEADER --- */
 .hero {
     min-height: 100vh;
-    background-image: url('https://github.com/htmlpapu/portafolio-assets/blob/main/PORTADA.png?raw=true');
+    background-image: url('https://github.com/htmlpapu/portafolio-assets/blob/main/PORTADA_CLEAN.png?raw=true');
     background-size: cover;
     background-position: center;
     position: relative;
@@ -296,3 +296,4 @@ iframe {
 a:hover {
     color: var(--accent-blue);
 }
+
